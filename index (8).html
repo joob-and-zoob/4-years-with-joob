@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 4th Anniversary 💕</title>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     💗  EDIT THIS PART to make it yours  💗
+     Everything you'd want to change is in the <script id="config"> block
+     near the bottom of this file (search for "EDIT ME"): her name, your
+     name, the date you got together, your reasons, and the love note.
+     Nothing else needs touching. Then just upload this one file to GitHub.
+════════════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --blush:#FFF0F5;
+    --cotton:#FFE4EF;
+    --bubblegum:#FFC8DF;
+    --rose:#FF8FB8;
+    --berry:#D6608F;
+    --ink:#6A4152;
+    --collie:#2B2B33;
+    --cream:#FFFDFB;
+    --peri:#CBB6FF;
+    --shadow:0 18px 40px -18px rgba(214,96,143,.45);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:'Nunito',sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(120% 90% at 50% -10%, #FFF7FB 0%, var(--blush) 42%, var(--cotton) 100%);
+    background-attachment:fixed;
+    overflow-x:hidden;
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Fredoka',sans-serif;font-weight:600;margin:0;color:var(--berry)}
+  .script{font-family:'Caveat',cursive;font-weight:700;color:var(--rose)}
+
+  /* ── ambient floating hearts layer ── */
+  #hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .h-float{position:absolute;bottom:-40px;font-size:22px;opacity:0;animation:rise linear infinite;filter:drop-shadow(0 2px 2px rgba(214,96,143,.25))}
+  @keyframes rise{
+    0%{transform:translateY(0) rotate(0);opacity:0}
+    10%{opacity:.85}
+    90%{opacity:.85}
+    100%{transform:translateY(-112vh) rotate(40deg);opacity:0}
+  }
+
+  .wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 22px}
+
+  /* ── bunting banner ── */
+  .bunting{display:flex;justify-content:center;gap:0;flex-wrap:wrap;padding-top:26px}
+  .flag{width:0;height:0;border-left:17px solid transparent;border-right:17px solid transparent;border-top:26px solid var(--rose);margin:0 1px;animation:sway 3.5s ease-in-out infinite}
+  .flag:nth-child(3n+2){border-top-color:var(--bubblegum);animation-delay:.4s}
+  .flag:nth-child(3n){border-top-color:var(--peri);animation-delay:.8s}
+  @keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+
+  /* ── hero ── */
+  .hero{text-align:center;padding:14px 0 44px}
+  .hero .eyebrow{font-family:'Caveat',cursive;font-size:clamp(28px,6vw,42px);color:var(--rose);line-height:1;transform:rotate(-3deg);display:inline-block}
+  .hero h1{font-size:clamp(46px,11vw,104px);line-height:.98;letter-spacing:-1px;margin:.1em 0 .12em;color:var(--berry);text-shadow:0 3px 0 #fff, 0 6px 16px rgba(214,96,143,.25)}
+  .hero .names{font-family:'Fredoka';font-weight:500;font-size:clamp(18px,4.4vw,26px);color:var(--ink)}
+  .hero .names b{color:var(--rose)}
+  .hero .subtitle{margin-top:6px;font-size:clamp(15px,3.6vw,18px);color:var(--ink);opacity:.8}
+
+  /* ── the two collies ── */
+  .pups{display:flex;justify-content:center;align-items:flex-end;gap:clamp(4px,3vw,26px);margin:6px auto 0;max-width:520px}
+  .pup{width:clamp(140px,40vw,220px);height:auto;animation:bob 4s ease-in-out infinite;transform-origin:bottom center}
+  .pup.two{animation-delay:.6s}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  .tail{transform-origin:142px 150px;animation:wag .9s ease-in-out infinite}
+  @keyframes wag{0%,100%{transform:rotate(-11deg)}50%{transform:rotate(16deg)}}
+
+  /* ── counter ── */
+  .counter{margin:8px auto 60px;max-width:640px;background:var(--cream);border:3px solid #fff;border-radius:28px;box-shadow:var(--shadow);padding:26px 22px;text-align:center}
+  .counter .label{font-family:'Caveat';font-size:26px;color:var(--berry)}
+  .counter-grid{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .unit{background:linear-gradient(160deg,var(--cotton),#fff);border-radius:18px;padding:12px 6px;min-width:78px;flex:1 1 78px;max-width:120px;border:2px solid #fff;box-shadow:0 6px 14px -8px rgba(214,96,143,.4)}
+  .unit .num{font-family:'Fredoka';font-weight:700;font-size:clamp(24px,6vw,34px);color:var(--rose);line-height:1}
+  .unit .u{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);opacity:.65;font-weight:700}
+
+  /* ── sections ── */
+  .section{padding:34px 0}
+  .section-title{text-align:center;font-size:clamp(28px,6.5vw,44px);margin-bottom:6px}
+  .section-sub{text-align:center;font-family:'Caveat';font-size:24px;color:var(--rose);margin-bottom:26px}
+
+  /* ── reasons grid ── */
+  .reasons{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .reason{background:var(--cream);border:3px solid #fff;border-radius:22px;padding:22px 20px;box-shadow:0 12px 26px -16px rgba(214,96,143,.5);position:relative;transition:transform .25s ease, box-shadow .25s ease}
+  .reason:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 20px 34px -16px rgba(214,96,143,.6)}
+  .reason .pill{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--bubblegum);font-size:20px;margin-bottom:10px}
+  .reason p{margin:0;font-size:16.5px;font-weight:600}
+
+  /* ── love letter envelope ── */
+  .letter-zone{text-align:center;padding:16px 0 20px}
+  .envelope{--w:min(360px,86vw);width:var(--w);height:calc(var(--w)*.66);margin:18px auto;position:relative;cursor:pointer;filter:drop-shadow(0 16px 26px rgba(214,96,143,.35))}
+  .env-body{position:absolute;inset:0;background:linear-gradient(160deg,#FFD9E8,#FFC2DD);border-radius:16px;z-index:3}
+  .env-pocket{position:absolute;inset:0;z-index:5;border-radius:16px;overflow:hidden}
+  .env-pocket::before,.env-pocket::after{content:"";position:absolute;bottom:0;width:52%;height:100%;background:linear-gradient(160deg,#FFCFE1,#FFB6D3)}
+  .env-pocket::before{left:0;transform:skewX(18deg);transform-origin:bottom left}
+  .env-pocket::after{right:0;transform:skewX(-18deg);transform-origin:bottom right}
+  .flap{position:absolute;top:0;left:0;width:100%;height:52%;background:linear-gradient(160deg,#FFB6D3,#FF9EC4);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .6s ease;z-index:8}
+  .seal{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--berry);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;z-index:9;box-shadow:0 4px 8px rgba(0,0,0,.15);transition:opacity .3s}
+  .note{position:absolute;left:6%;top:8%;width:88%;background:var(--cream);border-radius:12px;padding:20px 20px;box-shadow:0 8px 18px rgba(214,96,143,.25);z-index:4;transition:transform .7s cubic-bezier(.2,.9,.3,1.2);transform:translateY(0);text-align:left}
+  .note p{margin:0;font-family:'Caveat';font-size:clamp(19px,4.6vw,24px);color:var(--ink);line-height:1.4}
+  .note .sign{display:block;margin-top:10px;font-family:'Fredoka';color:var(--rose);font-weight:600}
+  .envelope.open .flap{transform:rotateX(180deg)}
+  .envelope.open .seal{opacity:0}
+  .envelope.open .note{transform:translateY(-78%);z-index:10}
+  .tap-hint{font-family:'Caveat';font-size:22px;color:var(--rose)}
+
+  /* ── footer ── */
+  footer{text-align:center;padding:40px 0 60px;color:var(--ink)}
+  footer .paws{font-size:20px;letter-spacing:8px;opacity:.5}
+  footer .sig{font-family:'Caveat';font-size:26px;color:var(--berry);margin-top:8px}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<div id="hearts" aria-hidden="true"></div>
+
+<div class="bunting" aria-hidden="true">
+  <span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span><span class="flag"></span>
+</div>
+
+<div class="wrap">
+  <!-- ══════════ HERO ══════════ -->
+  <header class="hero">
+    <span class="eyebrow">happy</span>
+    <h1>4th Anniversary</h1>
+    <div class="names"><b data-you>You</b> &nbsp;💗&nbsp; <b data-her>Her</b></div>
+    <p class="subtitle" data-tagline>four whole years of you and me</p>
+
+    <div class="pups">
+      <!-- collie one (flower) -->
+      <svg class="pup one" viewBox="0 0 200 214" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A cute cartoon border collie">
+        <g class="tail"><path d="M140 158 Q184 158 182 118 Q176 132 164 138 Q176 118 168 102 Q158 130 140 142 Z" fill="#2b2b33"/><path d="M178 126 Q182 138 174 146 Q170 138 170 130 Z" fill="#fffdfb"/></g>
+        <ellipse cx="100" cy="160" rx="46" ry="42" fill="#fffdfb"/>
+        <path d="M60 152 Q58 120 100 118 Q142 120 140 152 Q120 138 100 138 Q80 138 60 152 Z" fill="#2b2b33"/>
+        <rect x="80" y="178" width="16" height="26" rx="8" fill="#fffdfb" stroke="#eecfdd" stroke-width="1.5"/>
+        <rect x="104" y="178" width="16" height="26" rx="8" fill="#fffdfb" stroke="#eecfdd" stroke-width="1.5"/>
+        <ellipse cx="88" cy="202" rx="9" ry="5" fill="#f7cede"/><ellipse cx="112" cy="202" rx="9" ry="5" fill="#f7cede"/>
+        <g>
+          <path d="M60 62 Q40 18 78 44 Q70 56 66 70 Z" fill="#2b2b33"/><path d="M140 62 Q160 18 122 44 Q130 56 134 70 Z" fill="#2b2b33"/>
+          <path d="M64 56 Q52 30 72 48 Z" fill="#54545f"/><path d="M136 56 Q148 30 128 48 Z" fill="#54545f"/>
+          <circle cx="100" cy="84" r="44" fill="#fffdfb"/>
+          <clipPath id="hA"><circle cx="100" cy="84" r="44"/></clipPath>
+          <g clip-path="url(#hA)"><ellipse cx="73" cy="68" rx="31" ry="35" fill="#2b2b33"/><ellipse cx="127" cy="68" rx="31" ry="35" fill="#2b2b33"/></g>
+          <ellipse cx="75" cy="100" rx="10" ry="7" fill="#ffb3d1" opacity=".7"/><ellipse cx="125" cy="100" rx="10" ry="7" fill="#ffb3d1" opacity=".7"/>
+          <ellipse cx="84" cy="84" rx="10" ry="11.5" fill="#fffdfb"/><ellipse cx="116" cy="84" rx="10" ry="11.5" fill="#fffdfb"/>
+          <circle cx="85" cy="86" r="6.5" fill="#3a2b2b"/><circle cx="115" cy="86" r="6.5" fill="#3a2b2b"/>
+          <circle cx="87" cy="83" r="2.3" fill="#fff"/><circle cx="117" cy="83" r="2.3" fill="#fff"/>
+          <ellipse cx="100" cy="102" rx="17" ry="12.5" fill="#fffdfb"/><ellipse cx="100" cy="99" rx="6.5" ry="5" fill="#33262b"/>
+          <path d="M100 104 Q100 111 93 113" fill="none" stroke="#caa" stroke-width="2" stroke-linecap="round"/>
+          <path d="M100 104 Q100 111 107 113" fill="none" stroke="#caa" stroke-width="2" stroke-linecap="round"/>
+          <path d="M95 113 Q100 118 105 113 Q100 116 100 116 Z" fill="#ff9ec4"/>
+          <!-- flower -->
+          <g transform="translate(58,52)"><circle cx="0" cy="-7" r="5" fill="#ff8fb8"/><circle cx="6.5" cy="-2" r="5" fill="#ff8fb8"/><circle cx="4" cy="6" r="5" fill="#ff8fb8"/><circle cx="-4" cy="6" r="5" fill="#ff8fb8"/><circle cx="-6.5" cy="-2" r="5" fill="#ff8fb8"/><circle cx="0" cy="0" r="4" fill="#ffe08a"/></g>
+        </g>
+      </svg>
+
+      <!-- collie two (bow tie) -->
+      <svg class="pup two" viewBox="0 0 200 214" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A cute cartoon border collie">
+        <g class="tail"><path d="M140 158 Q184 158 182 118 Q176 132 164 138 Q176 118 168 102 Q158 130 140 142 Z" fill="#2b2b33"/><path d="M178 126 Q182 138 174 146 Q170 138 170 130 Z" fill="#fffdfb"/></g>
+        <ellipse cx="100" cy="160" rx="46" ry="42" fill="#fffdfb"/>
+        <path d="M60 152 Q58 120 100 118 Q142 120 140 152 Q120 138 100 138 Q80 138 60 152 Z" fill="#2b2b33"/>
+        <rect x="80" y="178" width="16" height="26" rx="8" fill="#fffdfb" stroke="#eecfdd" stroke-width="1.5"/>
+        <rect x="104" y="178" width="16" height="26" rx="8" fill="#fffdfb" stroke="#eecfdd" stroke-width="1.5"/>
+        <ellipse cx="88" cy="202" rx="9" ry="5" fill="#f7cede"/><ellipse cx="112" cy="202" rx="9" ry="5" fill="#f7cede"/>
+        <!-- bow tie -->
+        <g transform="translate(100,138)"><path d="M0 0 L-16 -8 L-16 8 Z" fill="#c9a0ff"/><path d="M0 0 L16 -8 L16 8 Z" fill="#c9a0ff"/><circle r="4" fill="#a97fe0"/></g>
+        <g>
+          <path d="M60 62 Q40 18 78 44 Q70 56 66 70 Z" fill="#2b2b33"/><path d="M140 62 Q160 18 122 44 Q130 56 134 70 Z" fill="#2b2b33"/>
+          <path d="M64 56 Q52 30 72 48 Z" fill="#54545f"/><path d="M136 56 Q148 30 128 48 Z" fill="#54545f"/>
+          <circle cx="100" cy="84" r="44" fill="#fffdfb"/>
+          <clipPath id="hB"><circle cx="100" cy="84" r="44"/></clipPath>
+          <g clip-path="url(#hB)"><ellipse cx="73" cy="68" rx="31" ry="35" fill="#2b2b33"/><ellipse cx="127" cy="68" rx="31" ry="35" fill="#2b2b33"/></g>
+          <ellipse cx="75" cy="100" rx="10" ry="7" fill="#ffb3d1" opacity=".7"/><ellipse cx="125" cy="100" rx="10" ry="7" fill="#ffb3d1" opacity=".7"/>
+          <ellipse cx="84" cy="84" rx="10" ry="11.5" fill="#fffdfb"/><ellipse cx="116" cy="84" rx="10" ry="11.5" fill="#fffdfb"/>
+          <circle cx="85" cy="86" r="6.5" fill="#3a2b2b"/><circle cx="115" cy="86" r="6.5" fill="#3a2b2b"/>
+          <circle cx="87" cy="83" r="2.3" fill="#fff"/><circle cx="117" cy="83" r="2.3" fill="#fff"/>
+          <ellipse cx="100" cy="102" rx="17" ry="12.5" fill="#fffdfb"/><ellipse cx="100" cy="99" rx="6.5" ry="5" fill="#33262b"/>
+          <path d="M100 104 Q100 111 93 113" fill="none" stroke="#caa" stroke-width="2" stroke-linecap="round"/>
+          <path d="M100 104 Q100 111 107 113" fill="none" stroke="#caa" stroke-width="2" stroke-linecap="round"/>
+          <path d="M95 113 Q100 118 105 113 Q100 116 100 116 Z" fill="#ff9ec4"/>
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  <!-- ══════════ COUNTER ══════════ -->
+  <section class="counter" aria-live="polite">
+    <div class="label">we've been us for…</div>
+    <div class="counter-grid">
+      <div class="unit"><div class="num" data-c="days">0</div><div class="u">days</div></div>
+      <div class="unit"><div class="num" data-c="hours">0</div><div class="u">hours</div></div>
+      <div class="unit"><div class="num" data-c="mins">0</div><div class="u">minutes</div></div>
+      <div class="unit"><div class="num" data-c="secs">0</div><div class="u">seconds</div></div>
+    </div>
+  </section>
+
+  <!-- ══════════ REASONS ══════════ -->
+  <section class="section" id="reasons">
+    <h2 class="section-title">Reasons I love you</h2>
+    <p class="section-sub">…and I could keep going forever</p>
+    <div class="reasons" data-reasons></div>
+  </section>
+
+  <!-- ══════════ LOVE LETTER ══════════ -->
+  <section class="section letter-zone">
+    <h2 class="section-title">A note, just for you</h2>
+    <p class="tap-hint">tap the envelope 💌</p>
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the love note">
+      <div class="note"><p data-note></p><span class="sign" data-sign>— me</span></div>
+      <div class="env-body"></div>
+      <div class="env-pocket"></div>
+      <div class="flap"></div>
+      <div class="seal">♥</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="paws">🐾 🐾 🐾</div>
+    <div class="sig" data-footer>here's to forever</div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<script id="config">
+/* ╔══════════════════════════════════════════════════════════════════╗
+   ║  💗  EDIT ME  —  change everything below to make it personal       ║
+   ╚══════════════════════════════════════════════════════════════════╝ */
+const CONFIG = {
+  yourName: "You",          // ← your name
+  herName:  "Her",          // ← her name
+
+  // The day you got together, as YEAR, MONTH, DAY.
+  // NOTE: month is 0-based → January is 0, so July = 6, December = 11.
+  togetherSince: new Date(2021, 6, 18),   // ← e.g. 18 July 2021
+
+  tagline: "four whole years of you and me",
+
+  // Add, remove, or rewrite as many as you like. Each has an emoji + text.
+  reasons: [
+    { emoji: "☕", text: "The way you make ordinary mornings feel like a whole adventure." },
+    { emoji: "😂", text: "You laugh at my worst jokes — and somehow mean it." },
+    { emoji: "🫂", text: "You feel like home, no matter where we actually are." },
+    { emoji: "🌙", text: "Late-night talks with you are my favourite place to be." },
+    { emoji: "🐶", text: "We both agree every dog we pass deserves to be greeted." },
+    { emoji: "💌", text: "Four years in, and you still give me butterflies." },
+  ],
+
+  // Your love note — write as much as you want.
+  note: "From the very first day, I knew you were something special. Four years later, you still surprise me, still make me laugh, and still feel like the best thing that ever happened to me. Thank you for every ordinary and extraordinary day. I love you more than all the border collies in the world. 💕",
+  signature: "— always yours",
+
+  footer: "here's to forever, and then some 🐾",
+};
+
+/* ── render config into the page (no need to edit below) ── */
+(function(){
+  document.querySelector('[data-you]').textContent = CONFIG.yourName;
+  document.querySelector('[data-her]').textContent = CONFIG.herName;
+  document.querySelector('[data-tagline]').textContent = CONFIG.tagline;
+  document.querySelector('[data-note]').textContent = CONFIG.note;
+  document.querySelector('[data-sign]').textContent = CONFIG.signature;
+  document.querySelector('[data-footer]').textContent = CONFIG.footer;
+
+  const grid = document.querySelector('[data-reasons]');
+  CONFIG.reasons.forEach(r=>{
+    const c=document.createElement('div');
+    c.className='reason';
+    c.innerHTML=`<span class="pill">${r.emoji}</span><p>${r.text}</p>`;
+    grid.appendChild(c);
+  });
+
+  // live "together for" counter
+  const pad=(n)=>String(n).padStart(2,'0');
+  const els={
+    days:document.querySelector('[data-c="days"]'),
+    hours:document.querySelector('[data-c="hours"]'),
+    mins:document.querySelector('[data-c="mins"]'),
+    secs:document.querySelector('[data-c="secs"]'),
+  };
+  function tick(){
+    let diff=Math.max(0, Date.now()-CONFIG.togetherSince.getTime());
+    const d=Math.floor(diff/86400000); diff-=d*86400000;
+    const h=Math.floor(diff/3600000);  diff-=h*3600000;
+    const m=Math.floor(diff/60000);    diff-=m*60000;
+    const s=Math.floor(diff/1000);
+    els.days.textContent=d.toLocaleString();
+    els.hours.textContent=pad(h);
+    els.mins.textContent=pad(m);
+    els.secs.textContent=pad(s);
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+
+<script>
+/* ── ambient floating hearts ── */
+(function(){
+  const layer=document.getElementById('hearts');
+  const glyphs=['💗','💕','🩷','💞','🤍'];
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const count=reduce?0:14;
+  for(let i=0;i<count;i++){
+    const s=document.createElement('span');
+    s.className='h-float';
+    s.textContent=glyphs[i%glyphs.length];
+    s.style.left=Math.random()*100+'vw';
+    s.style.fontSize=(14+Math.random()*20)+'px';
+    s.style.animationDuration=(9+Math.random()*10)+'s';
+    s.style.animationDelay=(-Math.random()*18)+'s';
+    layer.appendChild(s);
+  }
+})();
+
+/* ── click / tap to burst hearts ── */
+(function(){
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+  const glyphs=['💗','💕','🩷','✨','💞'];
+  window.addEventListener('pointerdown',e=>{
+    for(let i=0;i<6;i++){
+      const s=document.createElement('span');
+      s.textContent=glyphs[Math.floor(Math.random()*glyphs.length)];
+      s.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;z-index:9999;pointer-events:none;font-size:${14+Math.random()*14}px;transition:transform .9s ease-out,opacity .9s ease-out;transform:translate(-50%,-50%)`;
+      document.body.appendChild(s);
+      const ang=Math.random()*Math.PI*2, dist=40+Math.random()*70;
+      requestAnimationFrame(()=>{
+        s.style.transform=`translate(${Math.cos(ang)*dist-50}%,${Math.sin(ang)*dist-110}px) scale(${.6+Math.random()})`;
+        s.style.opacity='0';
+      });
+      setTimeout(()=>s.remove(),950);
+    }
+  });
+})();
+
+/* ── envelope open/close ── */
+(function(){
+  const env=document.getElementById('envelope');
+  const toggle=()=>env.classList.toggle('open');
+  env.addEventListener('click',toggle);
+  env.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();} });
+})();
+</script>
+</body>
+</html>
